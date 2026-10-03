@@ -5,19 +5,23 @@ public class Cliente {
 	private String cedula;
 	private String nombre;
 	private String apellido;
+	private String email; //nuevo atributo cliente
+	
 	//constructor vacio
 	public Cliente() {}
 	//constructor con parametros
-	public Cliente(String cedula, String nombre, String apellido) {
+	public Cliente(String cedula, String nombre, String apellido, String email) {
 		super();
 		this.cedula = cedula;
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.email = email; //nuevo atributo cliente
 	}
 	//generate to String
+	
 	@Override
 	public String toString() {
-		return "Cliente [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + "]";
+		return "Cliente [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + "]";
 	}
 	
 	//generar lo getters and stteres
@@ -25,6 +29,7 @@ public class Cliente {
 	public String getCedula() {
 		return cedula;
 	}
+	
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
@@ -40,7 +45,12 @@ public class Cliente {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	
+	public String getEmail() { //nuevo atributo cliente
+		return email;
+	}
+	public void setEmail(String email) { //nuevo atributo cliente
+		this.email = email;
+	}
 	
 	
 	
