@@ -29,7 +29,7 @@ class ServicioClienteTest {
         // Qué se prueba: Creación de un cliente nuevo no existente previamente en la lista.
         // Resultado esperado: El método retorna el objeto Cliente creado (no nulo) y la lista incrementa su tamaño a 1.
         
-        Cliente nuevoCliente = new Cliente("1723456789", "Juan", "Pérez");
+        Cliente nuevoCliente = new Cliente("1723456789", "Juan", "Pérez","abc@hotmail.com");
         Cliente resultado = servicioCliente.crear(nuevoCliente);
 
         assertNotNull(resultado);
@@ -42,8 +42,8 @@ class ServicioClienteTest {
         // Qué se prueba: Intento de agregar un cliente con una cédula que ya existe en la lista.
         // Resultado esperado: El método retorna null y el tamaño de la lista se mantiene en 1.
         
-        Cliente cliente1 = new Cliente("1723456789", "Juan", "Pérez");
-        Cliente clienteDuplicado = new Cliente("1723456789", "Carlos", "Gómez");
+        Cliente cliente1 = new Cliente("1723456789", "Juan", "Pérez", "abc@hotmail.com");
+        Cliente clienteDuplicado = new Cliente("1723456789", "Carlos", "Gómez", "ccg@hotmail.com");
 
         servicioCliente.crear(cliente1);
         Cliente resultado = servicioCliente.crear(clienteDuplicado);
@@ -57,7 +57,7 @@ class ServicioClienteTest {
         // Qué se prueba: Búsqueda de un cliente que sí está registrado en la lista.
         // Resultado esperado: Retorna el objeto Cliente correspondiente a la cédula consultada.
         
-        Cliente cliente = new Cliente("1723456789", "Maria", "López");
+        Cliente cliente = new Cliente("1723456789", "Maria", "López", "ml@hotmail.com");
         servicioCliente.crear(cliente);
 
         Cliente resultado = servicioCliente.buscarPorCedula("1723456789");
@@ -81,8 +81,8 @@ class ServicioClienteTest {
         // Qué se prueba: Obtención de la lista completa de clientes registrados.
         // Resultado esperado: La lista retorna exactamente la cantidad de elementos agregados (2).
         
-        servicioCliente.crear(new Cliente("1711111111", "Ana", "Torres"));
-        servicioCliente.crear(new Cliente("1722222222", "Luis", "Ramírez"));
+        servicioCliente.crear(new Cliente("1711111111", "Ana", "Torres", "at@hotmail.com"));
+        servicioCliente.crear(new Cliente("1722222222", "Luis", "Ramírez", "ss@hotmail.com"));
 
         List<Cliente> lista = servicioCliente.listar();
 
@@ -95,7 +95,7 @@ class ServicioClienteTest {
         // Qué se prueba: Actualización de datos (nombre y apellido) de un cliente existente por su cédula.
         // Resultado esperado: Retorna el cliente con los datos modificados exitosamente.
         
-        servicioCliente.crear(new Cliente("1723456789", "Juan", "Pérez"));
+        servicioCliente.crear(new Cliente("1723456789", "Juan", "Pérez", "asddfg@hotmail.com"));
 
         Cliente datosNuevos = new Cliente();
         datosNuevos.setNombre("Juan Carlos");
@@ -113,7 +113,7 @@ class ServicioClienteTest {
         // Qué se prueba: Intento de actualizar los datos de un cliente cuyo número de cédula no existe.
         // Resultado esperado: Retorna null indicando que no se pudo realizar la actualización.
         
-        Cliente datosNuevos = new Cliente("9999999999", "Pedro", "Gómez");
+        Cliente datosNuevos = new Cliente("9999999999", "Pedro", "Gómez", "kjhhj@hotmail.com");
         Cliente resultado = servicioCliente.actualizar("9999999999", datosNuevos);
 
         assertNull(resultado);
@@ -124,7 +124,7 @@ class ServicioClienteTest {
         // Qué se prueba: Eliminación de un cliente existente en la lista.
         // Resultado esperado: Retorna true y el tamaño de la lista disminuye a 0.
         
-        servicioCliente.crear(new Cliente("1723456789", "Juan", "Pérez"));
+        servicioCliente.crear(new Cliente("1723456789", "Juan", "Pérez","ghj@hotmail.com"));
 
         boolean eliminado = servicioCliente.eliminar("1723456789");
 
